@@ -1,20 +1,14 @@
 package com.example.myapplication.model;
 
-public class Livro {
+import java.io.Serializable;
+
+public class Livro implements Serializable {
     private Integer idLivro;
     private Integer ISBN;
     private String titulo;
     private String autor;
 
-    public Livro() {
-    }
 
-    public Livro(Integer idLivro, Integer ISBN, String titulo, String autor) {
-        this.idLivro = idLivro;
-        this.ISBN = ISBN;
-        this.titulo = titulo;
-        this.autor = autor;
-    }
 
     public Integer getIdLivro() {
         return idLivro;

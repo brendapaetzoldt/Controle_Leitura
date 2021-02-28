@@ -25,7 +25,6 @@ public class Activity_cadastro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-
         edt_isbn = findViewById(R.id.edt_isbn);
         edt_titulo = findViewById(R.id.edt_titulo);
         edt_autor = findViewById(R.id.edt_autor);
@@ -38,7 +37,7 @@ public class Activity_cadastro extends AppCompatActivity {
         l.setISBN(Integer.parseInt(edt_isbn.getText().toString()));
         l.setTitulo(edt_titulo.getText().toString());
         l.setAutor(edt_autor.getText().toString());
-        long id = dao.insert(l);
+        long idLivro = dao.insert(l);
         Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
 
 
