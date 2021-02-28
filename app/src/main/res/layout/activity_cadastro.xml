@@ -100,15 +100,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
+                android:onClick="salvar"
                 android:background="@color/cardview_light_background"
                 android:text="Cadastrar" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button_cancelar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
                 android:layout_marginTop="8dp"
+                android:onClick="retorna"
                 android:background="@color/cardview_light_background"
                                 android:text="Cancelar" />
         </LinearLayout>
