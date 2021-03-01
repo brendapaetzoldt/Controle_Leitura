@@ -1,6 +1,9 @@
 package com.example.myapplication.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -15,14 +18,17 @@ import com.example.myapplication.R;
 import com.example.myapplication.db.Conexao;
 import com.example.myapplication.db.LivroDAO;
 import com.example.myapplication.model.Livro;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     Button button;
-    List<Livro> livros;
     private LivroDAO dao;
+    private List<Livro> livros;
+    private ListView listView;
 
 
     @Override
@@ -30,24 +36,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-//    ListView listView = findViewById(R.id.listView);
-//    dao = new LivroDAO(getApplicationContext());
-//    livros = dao.selectAll();
-//    ArrayAdapter<Livro> dataAdapter = new ArrayAdapter<Livro>(this, android.R.layout.simple_list_item_1, livros);
-//    listView.setAdapter(dataAdapter);
-//    dataAdapter.notifyDataSetChanged();
-
-
-
-
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getApplicationContext(), "Sucesso" + livros, Toast.LENGTH_LONG).show();
-
 
                 Intent intent = new Intent(MainActivity.this, Activity_cadastro.class);
                 startActivity(intent);
@@ -55,6 +47,45 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        listView = findViewById(R.id.listView);
+
+        TabLayout tabLayout = findViewById(R.id.tabBar);
+        TabItem tabHome = findViewById(R.id.home);
+        TabItem tabHistorico = findViewById(R.id.historico);
+
+        final ViewPager viewPager = findViewById(R.id.viewPager);
+
+
+        PagerAdapter pagerAdapte = new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return 0;
+            }
+
+            @Override
+            public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+                return false;
+            }
+        };
+
+        viewPager.setAdapter(pagerAdapte);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
 
     }
