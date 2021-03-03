@@ -2,10 +2,11 @@ package com.example.myapplication.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.adapter.PagerAdapter;
 import com.example.myapplication.db.Conexao;
 import com.example.myapplication.db.LivroDAO;
 import com.example.myapplication.model.Livro;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private LivroDAO dao;
     private List<Livro> livros;
     private ListView listView;
+    private FragmentManager fm;
+    private int behavior;
 
 
     @Override
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 Intent intent = new Intent(MainActivity.this, Activity_cadastro.class);
                 startActivity(intent);
@@ -56,19 +61,13 @@ public class MainActivity extends AppCompatActivity {
         final ViewPager viewPager = findViewById(R.id.viewPager);
 
 
-        PagerAdapter pagerAdapte = new PagerAdapter() {
-            @Override
-            public int getCount() {
-                return 0;
-            }
+         PagerAdapter pagerAdapter = new PagerAdapter(fm, behavior);
 
-            @Override
-            public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-                return false;
-            }
-        };
 
-        viewPager.setAdapter(pagerAdapte);
+
+
+
+        viewPager.setAdapter(pagerAdapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

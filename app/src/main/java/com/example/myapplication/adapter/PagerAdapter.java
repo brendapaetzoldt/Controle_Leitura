@@ -1,5 +1,7 @@
 package com.example.myapplication.adapter;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -12,10 +14,11 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     private int numOfTabs;
 
-    public PagerAdapter(@NonNull FragmentManager fm, int numOfTabs) {
-        super(fm);
-        this.numOfTabs = numOfTabs;
+    public PagerAdapter(@NonNull FragmentManager fm, int behavior) {
+        super(fm, behavior);
     }
+
+
 
     @NonNull
     @Override
@@ -29,11 +32,13 @@ public class PagerAdapter extends FragmentPagerAdapter {
             default:
                 return null;
         }
-
-    }
+        }
 
     @Override
     public int getCount() {
         return numOfTabs;
     }
+
+
+
 }
