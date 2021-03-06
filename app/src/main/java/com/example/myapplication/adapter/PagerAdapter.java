@@ -14,10 +14,11 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     private int numOfTabs;
 
-    public PagerAdapter(@NonNull FragmentManager fm, int behavior) {
-        super(fm, behavior);
-    }
 
+    public PagerAdapter(@NonNull FragmentManager fm, int numOfTabs) {
+        super(fm, numOfTabs);
+        this.numOfTabs = numOfTabs;
+    }
 
 
     @NonNull
