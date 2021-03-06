@@ -1,14 +1,12 @@
 package com.example.myapplication.adapter;
 
-import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.myapplication.view.HomeFragment;
-import com.example.myapplication.view.listFragment;
+import com.example.myapplication.controller.HomeFragment;
+import com.example.myapplication.controller.listFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
 
