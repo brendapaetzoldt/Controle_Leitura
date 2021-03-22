@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private FragmentManager fm;
     private int behavior;
+    private PagerAdapter pagerAdapter;
 
 
     @Override
