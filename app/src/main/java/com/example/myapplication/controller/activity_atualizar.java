@@ -92,5 +92,11 @@ public class activity_atualizar extends AppCompatActivity {
 
     }
 
+    public void retorna(View view) {
+        Intent intent = new Intent(activity_atualizar.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 
 }
