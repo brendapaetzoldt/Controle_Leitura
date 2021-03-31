@@ -58,12 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
         final ViewPager viewPager = findViewById(R.id.viewPager);
 
-
-         PagerAdapter pagerAdapter = new PagerAdapter(fm, behavior);
-
-
-
-
+        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(),
+                tabLayout.getTabCount());
 
         viewPager.setAdapter(pagerAdapter);
 
@@ -83,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
     }
 

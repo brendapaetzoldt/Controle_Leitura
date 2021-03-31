@@ -3,20 +3,11 @@ package com.example.myapplication.model;
 import java.io.Serializable;
 
 public class Livro implements Serializable {
-    private Integer idLivro;
     private Integer ISBN;
     private String titulo;
     private String autor;
 
 
-
-    public Integer getIdLivro() {
-        return idLivro;
-    }
-
-    public void setIdLivro(Integer idLivro) {
-        this.idLivro = idLivro;
-    }
 
     public Integer getISBN() {
         return ISBN;
@@ -40,5 +31,14 @@ public class Livro implements Serializable {
 
     public void setAutor(String autor) {
         this.autor = autor;
+    }
+
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "ISBN=" + ISBN +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                '}';
     }
 }

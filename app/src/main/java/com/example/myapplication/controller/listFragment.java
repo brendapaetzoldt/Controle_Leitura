@@ -16,6 +16,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.db.LivroDAO;
 import com.example.myapplication.model.Livro;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class listFragment extends Fragment {
@@ -39,28 +40,14 @@ public class listFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
         intent = new Intent(getActivity(), listFragment.class);
-
-
         listView = view.findViewById(R.id.listView);
 
+        dao = new LivroDAO(getActivity());
+        livros = dao.selectAll();
 
-        if(livros.isEmpty()){
-            Toast.makeText(getContext(), "vazio", Toast.LENGTH_SHORT).show();
-
-        }else{
-
-            dao = new LivroDAO(getActivity());
-            livros = dao.selectAll();
-            ArrayAdapter<Livro> adapter = new ArrayAdapter<Livro>(getContext(), android.R.layout.simple_list_item_1, livros);
-
-            listView.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
-
-            Toast.makeText(getContext(), "Chamou", Toast.LENGTH_SHORT).show();
-
-        }
-
-
+        ArrayAdapter<Livro> dataAdapter= new ArrayAdapter<Livro>(getContext(),android.R.layout.simple_list_item_1, livros);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        listView.setAdapter(dataAdapter);
 
 
         return view;

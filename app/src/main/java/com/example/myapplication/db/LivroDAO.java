@@ -33,14 +33,13 @@ public class LivroDAO {
 
     public List<Livro> selectAll() {
         List<Livro> livros = new ArrayList<>();
-        Cursor cursor = banco.query("livro", new String[]{"id", "isbn", "titulo", "autor"},
+        Cursor cursor = banco.query("livro", new String[]{"isbn", "titulo", "autor"},
                 null, null, null, null, null);
         while (cursor.moveToNext()) {
             Livro l = new Livro();
-            l.setIdLivro(cursor.getInt(0));
-            l.setISBN(cursor.getInt(1));
+            l.setISBN(cursor.getInt(0));
+            l.setTitulo(cursor.getString(1));
             l.setAutor(cursor.getString(2));
-            l.setAutor(cursor.getString(3));
             livros.add(l);
 
         }
