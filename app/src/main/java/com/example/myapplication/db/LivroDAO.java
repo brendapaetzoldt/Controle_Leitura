@@ -47,4 +47,15 @@ public class LivroDAO {
     }
 
 
+    public void atualizar(Livro livro) {
+        ContentValues values = new ContentValues();
+        values.put("titulo", livro.getTitulo());
+        values.put("autor", livro.getAutor());
+        values.put("isbn", livro.getISBN());
+        banco.update("livro", values, "isbn=?", new String[]{livro.getISBN().toString()});
+    }
+
+    public void excluir(Livro livro) {
+        banco.delete("livro", "isbn=?", new String[]{livro.getISBN() + ""});
+    }
 }
