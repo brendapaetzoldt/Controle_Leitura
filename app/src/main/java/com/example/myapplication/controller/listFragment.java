@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -33,13 +34,29 @@ public class listFragment extends Fragment {
     }
 
 
+    private AdapterView.OnItemClickListener listClick = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView parent, View v, int position, long isbn) {
+
+            final Livro livroAtualizar = livros.get(position);
+            intent.putExtra("livro", livroAtualizar);
+
+            verifica((int) isbn);
+            listView.invalidateViews();
+
+            startActivity(intent);
+
+
+        }
+    };
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
-        intent = new Intent(getActivity(), listFragment.class);
+        intent = new Intent(getActivity(), activity_atualizar.class);
         listView = view.findViewById(R.id.listView);
 
         dao = new LivroDAO(getActivity());
@@ -49,7 +66,18 @@ public class listFragment extends Fragment {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         listView.setAdapter(dataAdapter);
 
-
+        listView.setOnItemClickListener(listClick);
         return view;
+    }
+
+    public boolean verifica(int isbn) {
+        for (Livro l : livros) {
+            if (l.getISBN() == isbn) {
+                livros.add(l);
+                return true;
+
+            }
+        }
+        return false;
     }
 }
