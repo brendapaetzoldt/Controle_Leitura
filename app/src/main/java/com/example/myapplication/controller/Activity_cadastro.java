@@ -41,6 +41,9 @@ public class Activity_cadastro extends AppCompatActivity {
         l.setAutor(edt_autor.getText().toString());
         long idLivro = dao.insert(l);
         Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+        l.setISBN(Integer.parseInt(""));
+        l.setTitulo("");
+        l.setAutor("");
 
 
     }

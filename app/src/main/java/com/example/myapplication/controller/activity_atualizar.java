@@ -59,6 +59,9 @@ public class activity_atualizar extends AppCompatActivity {
 
             long id = dao.insert(livro);
             Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+            livro.setISBN(Integer.parseInt(""));
+            livro.setTitulo("");
+            livro.setAutor("");
             Intent intent = new Intent(activity_atualizar.this, MainActivity.class);
             startActivity(intent);
         } else {
@@ -67,6 +70,9 @@ public class activity_atualizar extends AppCompatActivity {
             livro.setISBN(Integer.parseInt(edt_isbn.getText().toString()));
             dao.atualizar(livro);
             Toast.makeText(this, "Alteração realizada com sucesso", Toast.LENGTH_SHORT).show();
+            livro.setISBN(Integer.parseInt(""));
+            livro.setTitulo("");
+            livro.setAutor("");
             Intent intent = new Intent(activity_atualizar.this, MainActivity.class);
             startActivity(intent);
         }
