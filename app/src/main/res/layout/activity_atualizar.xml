@@ -67,7 +67,6 @@
                     android:id="@+id/edt_autor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:inputType="textPersonName" />
 
                 <TextView
@@ -95,7 +94,8 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:paddingRight="10dp"
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -125,26 +125,46 @@
                 <Spinner
                     android:id="@+id/spinner_status"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    />
+                    android:layout_height="40dp"
+                    android:ems="10" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Estrelas" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                    <TextView
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Estrelas" />
 
-                <CheckBox
-                    android:id="@+id/checkBox"
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Favorito" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Favorito" />
+                    android:layout_height="match_parent">
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="150px"
+                        android:layout_weight="1"
+                        android:button="@android:drawable/btn_star_big_on" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -163,6 +183,16 @@
                 android:background="@android:color/background_light"
                 android:onClick="Alterar"
                 android:text="Atualizar" />
+
+            <Button
+                android:id="@+id/btn_excluir2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="fill"
+                android:layout_marginTop="8dp"
+                android:background="@color/cardview_light_background"
+                android:onClick="Excluir"
+                android:text="Avaliar" />
 
             <Button
                 android:id="@+id/btn_excluir"

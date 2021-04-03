@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
@@ -16,12 +18,13 @@ import com.example.myapplication.model.Livro;
 public class Activity_cadastro extends AppCompatActivity {
 
 
-
     private EditText edt_isbn;
     private EditText edt_titulo;
     private EditText edt_autor;
     private LivroDAO dao;
     private ListView listView;
+    private Boolean verdade = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +34,20 @@ public class Activity_cadastro extends AppCompatActivity {
         edt_titulo = findViewById(R.id.edt_titulo);
         edt_autor = findViewById(R.id.edt_autor);
         dao = new LivroDAO(this);
-            }
 
 
-    public void salvar(View view){
+
+
+    }
+
+
+
+    public void salvar(View view) {
         Livro l = new Livro();
         l.setISBN(Integer.parseInt(edt_isbn.getText().toString()));
         l.setTitulo(edt_titulo.getText().toString());
         l.setAutor(edt_autor.getText().toString());
-        l.setDataCompra("");
-        l.setEstrelas(0);
-        l.setStatus("");
-        l.setFav(true);
-        long idLivro = dao.insert(l);
+             long idLivro = dao.insert(l);
         Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Activity_cadastro.this, MainActivity.class);
         startActivity(intent);

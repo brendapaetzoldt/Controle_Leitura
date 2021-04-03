@@ -7,7 +7,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
@@ -24,12 +29,17 @@ public class activity_atualizar extends AppCompatActivity {
     private EditText edt_titulo;
     private EditText edt_autor;
     private EditText edt_isbn;
-
+    private RatingBar ratingBar;
+    private Boolean verdade;
+    private RadioButton radioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atualizar);
+
+        ratingBar = findViewById(R.id.ratingBar);
+        radioButton = findViewById(R.id.radioButton);
 
         dao = new LivroDAO(getApplicationContext());
         livros = dao.selectAll();
@@ -48,7 +58,14 @@ public class activity_atualizar extends AppCompatActivity {
         edt_autor.setText(livro.getAutor());
         edt_isbn.setText(Integer.toString(livro.getISBN()));
 
+        if (radioButton.isSelected()) {
+            verdade = true;
+        } else {
+            verdade = false;
+        }
+
     }
+
 
     public void Alterar(View view) {
         if (livro == null) {
@@ -56,6 +73,8 @@ public class activity_atualizar extends AppCompatActivity {
             livro.setTitulo(edt_titulo.getText().toString());
             livro.setAutor(edt_autor.getText().toString());
             livro.setISBN(Integer.parseInt(edt_isbn.getText().toString()));
+            livro.setEstrelas(ratingBar.getRating());
+            livro.setFav(check());
             long id = dao.insert(livro);
             Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(activity_atualizar.this, MainActivity.class);
@@ -64,13 +83,26 @@ public class activity_atualizar extends AppCompatActivity {
             livro.setTitulo(edt_titulo.getText().toString());
             livro.setAutor(edt_autor.getText().toString());
             livro.setISBN(Integer.parseInt(edt_isbn.getText().toString()));
+            livro.setEstrelas(ratingBar.getRating());
+            livro.setFav(verdade);
+
             dao.atualizar(livro);
-            Toast.makeText(this, "Alteração realizada com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Alteração realizada com sucesso" + check(), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(activity_atualizar.this, MainActivity.class);
             startActivity(intent);
         }
 
     }
+
+    public boolean check() {
+        if(radioButton.isSelected()){
+        return true;
+        }
+        return false;
+
+
+    }
+
 
     public void Excluir(View view) {
 
