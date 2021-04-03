@@ -39,12 +39,14 @@ public class Activity_cadastro extends AppCompatActivity {
         l.setISBN(Integer.parseInt(edt_isbn.getText().toString()));
         l.setTitulo(edt_titulo.getText().toString());
         l.setAutor(edt_autor.getText().toString());
+        l.setDataCompra("");
+        l.setEstrelas(0);
+        l.setStatus("");
         long idLivro = dao.insert(l);
         Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
-        l.setISBN(Integer.parseInt(""));
-        l.setTitulo("");
-        l.setAutor("");
-
+        Intent intent = new Intent(Activity_cadastro.this, MainActivity.class);
+        startActivity(intent);
+        finish();
 
     }
 

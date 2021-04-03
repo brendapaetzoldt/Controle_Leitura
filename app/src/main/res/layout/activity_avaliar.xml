@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.activity_atualizar">
+    tools:context=".controller.avaliar">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15dp"
                     android:gravity="center"
-                    android:text="Atualização de Livros"
+                    android:text="Avaliação de Livros"
                     android:textSize="25sp" />
 
                 <TextView
@@ -90,61 +90,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="bottom|fill"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_cadastrar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="fill"
-                android:background="@android:color/background_light"
-                android:onClick="Alterar"
-                android:text="Atualizar" />
+                android:background="@color/cardview_light_background"
+                android:text="Cadastrar" />
 
             <Button
-                android:id="@+id/btn_avaliar"
+                android:id="@+id/button_cancelar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="fill"
                 android:layout_marginTop="8dp"
                 android:background="@color/cardview_light_background"
-                android:onClick="avaliar"
-                android:text="Avaliar" />
-
-            <Button
-                android:id="@+id/btn_excluir"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="fill"
-                android:layout_marginTop="8dp"
-                android:background="@color/cardview_light_background"
-                android:onClick="Excluir"
-                android:text="Excluir" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="fill"
-                android:layout_marginTop="8dp"
-                android:background="@color/cardview_light_background"
-                android:onClick="retorna"
                 android:text="Cancelar" />
-
         </LinearLayout>
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="731dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

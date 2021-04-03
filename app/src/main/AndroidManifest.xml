@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".controller.activity_atualizar"></activity>
+        <activity android:name=".controller.activity_atualizar" />
         <activity android:name=".controller.Activity_cadastro" />
         <activity android:name=".controller.MainActivity">
             <intent-filter>

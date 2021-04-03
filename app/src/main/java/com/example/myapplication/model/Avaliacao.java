@@ -5,22 +5,12 @@ import java.util.Date;
 public class Avaliacao {
 
     private Integer idAvaliacao;
-    private Livro idLivro;
+    private Integer isbn;
     private Date dataCompra;
     private double estrelas;
     private String status;
-
-
-    public Avaliacao() {
-    }
-
-    public Avaliacao(Integer idAvaliacao, Livro idLivro, Date dataCompra, double estrelas, String status) {
-        this.idAvaliacao = idAvaliacao;
-        this.idLivro = idLivro;
-        this.dataCompra = dataCompra;
-        this.estrelas = estrelas;
-        this.status = status;
-    }
+    private String titulo;
+    private String autor;
 
     public Integer getIdAvaliacao() {
         return idAvaliacao;
@@ -30,12 +20,12 @@ public class Avaliacao {
         this.idAvaliacao = idAvaliacao;
     }
 
-    public Livro getIdLivro() {
-        return idLivro;
+    public Integer getIsbn() {
+        return isbn;
     }
 
-    public void setIdLivro(Livro idLivro) {
-        this.idLivro = idLivro;
+    public void setIsbn(Integer isbn) {
+        this.isbn = isbn;
     }
 
     public Date getDataCompra() {
@@ -62,5 +52,19 @@ public class Avaliacao {
         this.status = status;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
 }
