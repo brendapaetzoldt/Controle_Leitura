@@ -10,6 +10,7 @@ public class Livro implements Serializable {
     private String dataCompra;
     private double estrelas;
     private String status;
+    private Boolean fav;
 
     public Livro() {
     }
@@ -62,15 +63,24 @@ public class Livro implements Serializable {
         this.status = status;
     }
 
+    public Boolean getFav() {
+        return fav;
+    }
+
+    public void setFav(Boolean fav) {
+        this.fav = fav;
+    }
+
     @Override
     public String toString() {
         return "Livro{" +
                 "ISBN=" + ISBN +
                 ", titulo='" + titulo + '\'' +
                 ", autor='" + autor + '\'' +
-                ", dataCompra=" + dataCompra +
+                ", dataCompra='" + dataCompra + '\'' +
                 ", estrelas=" + estrelas +
                 ", status='" + status + '\'' +
+                ", fav=" + fav +
                 '}';
     }
 }

@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 public class Conexao extends SQLiteOpenHelper {
 
     private static final String name = "bd.db";
-    private static final int version = 1;
+    private static final int version = 2;
     private static final String TABELA = "livro";
 
     public Conexao(@Nullable Context context) {
@@ -17,7 +17,7 @@ public class Conexao extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table livro(ISBN Integer  primary key , titulo varchar(50), autor varchar(50),dataCompra Date, estrelas Double, status String)");
+        db.execSQL("create table livro(ISBN Integer  primary key , titulo varchar(50), autor varchar(50),dataCompra Date, estrelas Double, status String, fav Boolean)");
 
     }
 

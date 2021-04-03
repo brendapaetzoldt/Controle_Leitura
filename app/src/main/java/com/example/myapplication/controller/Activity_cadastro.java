@@ -42,6 +42,7 @@ public class Activity_cadastro extends AppCompatActivity {
         l.setDataCompra("");
         l.setEstrelas(0);
         l.setStatus("");
+        l.setFav(true);
         long idLivro = dao.insert(l);
         Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Activity_cadastro.this, MainActivity.class);
