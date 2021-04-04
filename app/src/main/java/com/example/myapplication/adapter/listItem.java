@@ -41,8 +41,8 @@ public class listItem extends ArrayAdapter<Livro> {
         TextView txt_titulo = convertView.findViewById(R.id.txt_titulo);
 
 
-        txt_autor.setText(livro.getTitulo());
-        txt_titulo.setText(livro.getAutor());
+        txt_autor.setText(livro.getAutor());
+        txt_titulo.setText(livro.getTitulo());
 
 
         return convertView;

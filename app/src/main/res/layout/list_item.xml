@@ -41,14 +41,14 @@
 
             <TextView
                 android:id="@+id/txt_titulo"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="46dp"
                 android:fontFamily="sans-serif-light"
-                android:textSize="30dp" />
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/txt_autor"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="51dp"
                 android:textSize="20dp" />
         </LinearLayout>
