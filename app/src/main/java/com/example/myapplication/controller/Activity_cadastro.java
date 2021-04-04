@@ -36,10 +36,7 @@ public class Activity_cadastro extends AppCompatActivity {
         dao = new LivroDAO(this);
 
 
-
-
     }
-
 
 
     public void salvar(View view) {
@@ -47,7 +44,7 @@ public class Activity_cadastro extends AppCompatActivity {
         l.setISBN(Integer.parseInt(edt_isbn.getText().toString()));
         l.setTitulo(edt_titulo.getText().toString());
         l.setAutor(edt_autor.getText().toString());
-             long idLivro = dao.insert(l);
+        long idLivro = dao.insert(l);
         Toast.makeText(this, "Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Activity_cadastro.this, MainActivity.class);
         startActivity(intent);

@@ -30,7 +30,6 @@ public class LivroDAO {
         values.put("dataCompra", String.valueOf(livro.getDataCompra()));
         values.put("estrelas", livro.getEstrelas());
         values.put("status", livro.getStatus());
-        values.put("fav", livro.getFav());
 
         return banco.insert("livro", null, values);
 
@@ -39,7 +38,7 @@ public class LivroDAO {
 
     public List<Livro> selectAll() {
         List<Livro> livros = new ArrayList<>();
-        Cursor cursor = banco.query("livro", new String[]{"isbn", "titulo", "autor", "dataCompra", "estrelas", "status", "fav"},
+        Cursor cursor = banco.query("livro", new String[]{"isbn", "titulo", "autor", "dataCompra", "estrelas", "status"},
                 null, null, null, null, null);
         while (cursor.moveToNext()) {
             Livro l = new Livro();
@@ -49,7 +48,6 @@ public class LivroDAO {
             l.setDataCompra(cursor.getString(3));
             l.setEstrelas(Double.parseDouble(cursor.getString(4)));
             l.setStatus(cursor.getString(5));
-            l.setFav(Boolean.valueOf(cursor.getString(6)));
 
             livros.add(l);
 
@@ -66,7 +64,6 @@ public class LivroDAO {
         values.put("dataCompra", String.valueOf(livro.getDataCompra()));
         values.put("estrelas", livro.getEstrelas());
         values.put("status", livro.getStatus());
-        values.put("fav", livro.getFav());
 
         banco.update("livro", values, "isbn=?", new String[]{livro.getISBN().toString()});
     }

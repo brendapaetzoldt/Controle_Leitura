@@ -17,7 +17,7 @@ public class Conexao extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table livro(ISBN Integer  primary key , titulo varchar(50), autor varchar(50),dataCompra Date, estrelas Double, status String, fav Boolean)");
+        db.execSQL("create table livro(ISBN Integer  primary key , titulo varchar(50), autor varchar(50),dataCompra Date, estrelas Double, status String)");
 
     }
 
