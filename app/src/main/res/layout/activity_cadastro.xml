@@ -100,9 +100,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
-                android:onClick="salvar"
                 android:background="@color/cardview_light_background"
-                android:text="Cadastrar" />
+                android:backgroundTint="#DDC9B3"
+                android:onClick="salvar"
+                android:text="Cadastrar"
+                android:textColor="#000000" />
 
             <Button
                 android:id="@+id/button_cancelar"
@@ -110,9 +112,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
                 android:layout_marginTop="8dp"
-                android:onClick="retorna"
                 android:background="@color/cardview_light_background"
-                                android:text="Cancelar" />
+                android:backgroundTint="#DDC9B3"
+                android:onClick="retorna"
+                android:text="Cancelar"
+                android:textColor="#000000" />
         </LinearLayout>
 
     </LinearLayout>
