@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.adapter.listItem;
 import com.example.myapplication.db.LivroDAO;
 import com.example.myapplication.model.Livro;
 
@@ -62,9 +63,10 @@ public class listFragment extends Fragment {
         dao = new LivroDAO(getActivity());
         livros = dao.selectAll();
 
-        ArrayAdapter<Livro> dataAdapter= new ArrayAdapter<Livro>(getContext(),android.R.layout.simple_list_item_1, livros);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        listView.setAdapter(dataAdapter);
+        listItem adapter = new listItem(getActivity().getApplicationContext(), 0, livros);
+
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
         listView.setOnItemClickListener(listClick);
         return view;
