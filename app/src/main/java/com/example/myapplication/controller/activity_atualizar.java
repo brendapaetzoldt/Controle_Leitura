@@ -16,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
@@ -36,6 +37,7 @@ public class activity_atualizar extends AppCompatActivity {
     private RatingBar ratingBar;
     private Spinner spinner_status;
     private String selectedItemText;
+    private TextView textView4;
 
 
     @Override
@@ -58,11 +60,16 @@ public class activity_atualizar extends AppCompatActivity {
         edt_titulo = findViewById(R.id.edt_titulo);
         edt_isbn = findViewById(R.id.edt_isbn);
         edt_date = findViewById(R.id.edt_date);
+        ratingBar = findViewById(R.id.ratingBar);
+        spinner_status = findViewById(R.id.spinner_status);
+        textView4 = findViewById(R.id.textView4);
 
         edt_titulo.setText(livro.getTitulo());
         edt_autor.setText(livro.getAutor());
         edt_isbn.setText(Integer.toString(livro.getISBN()));
-
+        edt_date.setText(livro.getDataCompra());
+        ratingBar.setNumStars((int) livro.getEstrelas());
+        textView4.setText(livro.getStatus());
 
         Spinner spinner_status = findViewById(R.id.spinner_status);
 
